@@ -1,0 +1,18 @@
+name: Build FAP
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        uses: flipperdevices/flipperzero-ufbt-action@v0.1
+        id: build-app
+        with:
+          sdk-channel: release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ir_raw_rec
+          path: ${{ steps.build-app.outputs.fap-artifacts }}
