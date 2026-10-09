@@ -1,0 +1,9 @@
+App(
+    appid="ir_raw_rec",
+    name="IR Raw Recorder",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="ir_raw_rec_app",
+    stack_size=2 * 1024,
+    requires=["gui"],
+    fap_category="Infrared",
+)
